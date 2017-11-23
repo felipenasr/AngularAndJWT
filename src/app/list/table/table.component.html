@@ -1,0 +1,14 @@
+<table style="width: 100">
+    <tr>
+      <th>Nome</th>
+      <th>Cargo</th>
+      <th>Empresa</th>
+      <th>Tipo de regime</th>
+    </tr>
+    <tr *ngFor="let pessoa of funcionarios.data" >
+      <td>{{ pessoa.pessoa.nome}}</td>
+      <td>{{ pessoa.cargo.nome}}</td>
+      <td>{{ pessoa.empresa.razao_social }}</td>
+      <td>{{ pessoa.pessoa.pessoa_type }}</td>
+    </tr>
+</table>
