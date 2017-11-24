@@ -3,6 +3,7 @@ import { Http,Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise'
 import { JwtTokenService } from '../services/jwt-token.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private http:Http,
     private jwtToken: JwtTokenService,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) {}
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
       JSON.stringify(this.user),
       {headers: this.headers})
       .toPromise().then(res =>{
+        this.auth.check = true;
         this.jwtToken.token = res.json().token;
         this.router.navigate(this.redirectAfterLofin);
       

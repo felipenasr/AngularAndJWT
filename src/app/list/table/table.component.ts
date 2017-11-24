@@ -36,7 +36,10 @@ export class TableComponent implements OnInit {
     this.http.get(
       this.apiUrl,
       requestOpt
-    ).toPromise().then(res => this.funcionarios =  res.json() );
+    ).toPromise().then(res => {
+      this.funcionarios =  res.json()
+      console.log(res.json());
+    } );
 
   }
 }
