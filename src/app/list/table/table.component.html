@@ -5,10 +5,10 @@
       <th>Empresa</th>
       <th>Tipo de regime</th>
     </tr>
-    <tr *ngFor="let pessoa of funcionarios.data" >
-      <td>{{ pessoa.pessoa.nome}}</td>
-      <td>{{ pessoa.cargo.nome}}</td>
-      <td>{{ pessoa.empresa.razao_social }}</td>
-      <td>{{ pessoa.pessoa.pessoa_type }}</td>
+    <tr *ngFor="let pessoa of funcionarios" >
+      <td>{{ pessoa.cnpj}}</td>
+      <td>{{ pessoa.pessoa[0].pessoa_type }}</td>
+      <td>{{ pessoa.pessoa[0].site }}</td>
+      <td>{{ pessoa.razao_social}}</td>
     </tr>
 </table>

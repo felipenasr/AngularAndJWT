@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
+import { HttpModule, XHRBackend } from "@angular/http";
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -13,8 +13,15 @@ import { LocalStorageService } from './services/local-storage.service';
 import { JwtTokenService } from './services/jwt-token.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardRouterService } from './services/auth-guard-router.service';
+import { DefaultRequestsOptsService } from './services/default-requests-opts.service';
+
+import {MyDefaultXHRBackend } from './services/my-default-xhr-backend';
+
+
 import { MenuComponent } from './menu/menu.component';
 import { LogoutComponent } from './logout/logout.component';
+import { TesteComponent } from './teste/teste.component';
+import { TesteService } from './teste/teste.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,8 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     TableComponent,
     MenuComponent,
-    LogoutComponent
+    LogoutComponent,
+    TesteComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +42,9 @@ import { LogoutComponent } from './logout/logout.component';
     LocalStorageService,
     JwtTokenService,
     AuthService,
-    AuthGuardRouterService
+    AuthGuardRouterService,
+    DefaultRequestsOptsService,
+    {provide: XHRBackend, useClass: TesteService}
   ],
   bootstrap: [AppComponent]
 })
