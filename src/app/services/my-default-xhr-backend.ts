@@ -9,6 +9,7 @@ export class MyDefaultXHRBackend extends XHRBackend {
         .response
         .map((response) => {
             let authorization = response.headers.get('Authorization');
+            console.log(authorization);
             return response;
         });
         

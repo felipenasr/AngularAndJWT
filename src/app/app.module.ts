@@ -23,6 +23,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { TesteComponent } from './teste/teste.component';
 import { TesteService } from './teste/teste.service';
 
+import { AuthInterceptor } from './services/auth-header.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { TesteService } from './teste/teste.service';
     AuthService,
     AuthGuardRouterService,
     DefaultRequestsOptsService,
+    AuthInterceptor,
     {provide: XHRBackend, useClass: TesteService}
   ],
   bootstrap: [AppComponent]

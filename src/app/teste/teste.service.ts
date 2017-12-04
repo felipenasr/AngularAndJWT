@@ -26,9 +26,9 @@ export class TesteService extends XHRBackend  {
     xhrConnection.response = xhrConnection
         .response
         .map((response) => {      
-          //pegando header authorization
-          let authorization = response.headers.get('Authorization');
-                    return response;
+              //pegando header authorization
+              let authorization = response.headers.get('Authorization');
+              return response;
             });
           return xhrConnection;
     }
